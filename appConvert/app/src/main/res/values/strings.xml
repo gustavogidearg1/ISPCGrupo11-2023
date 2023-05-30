@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">appConvert</string>
+    <string name="txt_saludo">Bienvenido!!</string>
+    <string name="edt_username">User</string>
+    <string name="edt_password">Password</string>
+    <string name="btn_Login">Login</string>
+    <string name="txt_registro">No te has registrado? Regístrate ahora</string>
+    <string name="txt_Bienvenida">Bienvenido!!!</string>
+    <string name="btn_Longitud">Longitud</string>
+    <string name="btn_Volumen">Volumen</string>
+    <string name="btn_Masa">Masa</string>
+    <string name="btn_Area">Área</string>
+    <string name="btn_Velocidad">Área</string>
+    <string name="txt_Nombre">Nombre</string>
+
+</resources>
