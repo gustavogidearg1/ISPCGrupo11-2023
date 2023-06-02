@@ -13,4 +13,20 @@
     <string name="btn_Velocidad">Área</string>
     <string name="txt_Nombre">Nombre</string>
 
+
+    /*General */
+    <string name="txt_result">Resultado</string>
+
+    /*activiti long */
+    <string name="edt_txt_PrimerValor">Valor</string>
+    <string name="btn_Convertir">Convertir</string>
+    <string name="edt_valor">Ingresa un valor</string>
+
+    /*Item del menu */
+    <string name="itemLong">Longitud</string>
+    <string name="itemVol">Volumen</string>
+    <string name="itemMasa">Masa</string>
+    <string name="itemArea">Area</string>
+
+
 </resources>

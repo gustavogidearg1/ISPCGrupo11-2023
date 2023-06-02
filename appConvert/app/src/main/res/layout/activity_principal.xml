@@ -39,10 +39,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="366dp"
-        android:layout_height="436dp"
+        android:layout_width="360dp"
+        android:layout_height="304dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="100dp"
         android:orientation="vertical"
         android:padding="10dp"
@@ -50,7 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idTxtNombre"
-        app:layout_constraintVertical_bias="0.279">
+        app:layout_constraintVertical_bias="0.516">
 
 
         <Button
@@ -59,6 +59,7 @@
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/purple_500"
+            android:onClick="abrirLongitud"
             android:text="@string/btn_Longitud"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
@@ -90,16 +91,6 @@
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/purple_500"
             android:text="@string/btn_Area"
-            android:textSize="18sp"
-            app:cornerRadius="20dp" />
-
-        <Button
-            android:id="@+id/btnVelocidad"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/purple_500"
-            android:text="@string/btn_Velocidad"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
 

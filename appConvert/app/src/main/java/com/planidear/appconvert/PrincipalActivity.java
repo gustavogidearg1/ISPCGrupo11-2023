@@ -4,7 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -19,5 +26,14 @@ public class PrincipalActivity extends AppCompatActivity {
         // Capture el TextView y establezca la cadena como su texto
         TextView textView = findViewById(R.id.idTxtNombre);
         textView.setText(message);
+
+
     }
+  public void abrirLongitud(View view){
+    Intent intent = new Intent(getApplicationContext(), LongitudActivity.class);
+    startActivity(intent);
+
+  }
+
+
 }
