@@ -5,7 +5,9 @@ package com.planidear.appconvert;
 //https://es.stackoverflow.com/questions/355660/resultado-de-response-isempty-siempre-da-el-mismo-resultado
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    EditText email;
-    EditText password;
+    private EditText email;
+   private EditText password;
     Button loginButton;
     String url1 = "https://planidear.com.ar/ConexionAndroid/validar_usuario.php";
 
@@ -47,7 +49,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //para guardar el usuario eya en el segundo ingreso
+        ////https://youtu.be/9MH4ynEno_8?list=PLyvsggKtwbLX06iMtXnRGX5lyjiiMaT2y
+        //getSharedPreferences( pata poder obtener la preferencia que se alla guardado
+        //"datos" es el nombre de la preferencia, es el nombre general
+        SharedPreferences guardarCorreo = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        //setText para colocar una cadena de texto dentro de algun control o componente
+        //g("mail", "")); para identificar el dato que estamos buscando
+        email.setText(guardarCorreo.getString("mail", ""));
+
     }
+
+
+    public void  Guardar(View view){
+        SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        //Editor es para guiardar un archivo
+        SharedPreferences.Editor obj_editor = preferencias.edit();
+        obj_editor.putString("mail", email.getText().toString());
+        //confirmar lo que declaramos arriba se va a guardar
+        obj_editor.commit();
+        finish();
+
+    }
+
+
 
     private void validarUsuario(String URL){
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String> () {
@@ -61,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
                     String message = editText.getText().toString();
                     intent.putExtra(EXTRA_MESSAGE, message);
                     startActivity(intent);
+
+                    //Metodo para guardar el email
+                    SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+                    //Editor es para guiardar un archivo
+                    SharedPreferences.Editor obj_editor = preferencias.edit();
+                    obj_editor.putString("mail", email.getText().toString());
+                    //confirmar lo que declaramos arriba se va a guardar
+                    obj_editor.commit();
+                    finish();
 
                 }else{
                     Toast.makeText(MainActivity.this, "Error al querer ingresar", Toast.LENGTH_LONG).show();
