@@ -1,22 +1,34 @@
 <?php
-include_once("database.php");
-$postdata = file_get_contents("php://input");
-if(isset($postdata) && !empty($postdata))
-{
-$request = json_decode($postdata);
-$name = trim($request->name);
-$pwd = mysqli_real_escape_string($mysqli, trim($request->pwd));
-$email = mysqli_real_escape_string($mysqli, trim($request->email));
-$sql = "INSERT INTO usersandroid(name,password,email) VALUES ('$name','$pwd','$email')";
-if ($mysqli->query($sql) === TRUE) {
-$authdata = [
-'name' => $name,
-'pwd' => '',
-'email' => $email,
-'Id' => mysqli_insert_id($mysqli)
-];
-echo json_encode($authdata);
+
+include 'conexion.php';
+$usu_name=$_POST['name'];
+$usu_email=$_POST['email'];
+$usu_password=$_POST['password'];
+
+
+$sentencia=$conexion->prepare("INSERT INTO `usersandroid` (`id`, `name`, `email`, `password`, `phone`, `rol`) 
+VALUES (NULL, '$usu_name', '$usu_email', '$usu_password', '', 'user');");
+
+
+
+$sentencia->bind_param('ss',$usu_name,$usu_email,$usu_password);
+$sentencia->execute();
+
+$resultado = $sentencia->get_result();
+if ($sentencia > 0) {
+    echo "Registrado";
+$titulo="Usted se ha registrado correctamente";
+$mensaje="Name: ".$usu_name." - Email: ".$usu_email." - password: ".$usu_password." - Puede difrutar de nuestra aplicacion ";
+$para=$usu_email;
+
+$cabeceras = 'From: gustavog<gustavog@planidear.com.ar>';
+$enviado = mail($para, $titulo, $mensaje,$cabeceras);  
+
+}else{
+    echo "ERROR"; 
 }
-}
+$sentencia->close();
+$conexion->close();
+
 
 ?>
