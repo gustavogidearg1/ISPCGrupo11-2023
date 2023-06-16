@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginfondo"
+    android:background="@drawable/fondo"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="login"
             android:textAlignment="center"
-            android:textColor="@color/porple"
+            android:textColor="@color/black"
             android:textSize="36sp"
             android:textStyle="bold" />
         <EditText
@@ -73,6 +73,17 @@
             android:layout_marginBottom="30dp"
             android:backgroundTint="@color/porple"
             android:text="@string/btn_Login"
+            android:textSize="18sp"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/RegistroButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/porple"
+            android:onClick="irRegistrar"
+            android:text="@string/txt_regis"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
 

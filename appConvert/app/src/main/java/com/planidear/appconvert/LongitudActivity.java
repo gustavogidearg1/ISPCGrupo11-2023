@@ -24,16 +24,18 @@ public class LongitudActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_longitud);
+      getSupportActionBar().setDisplayShowHomeEnabled(true);
+      getSupportActionBar().setIcon(R.mipmap.ic_launcher_round);
 
 //findViewById para conectarlo desde la grafica
-etValor = (EditText) findViewById(R.id.txt_longValor);
+etValor = (EditText) findViewById(R.id.txt_Valor1);
 tvResul = (TextView) findViewById(R.id.tv_resultado);
         spinner1 = (Spinner) findViewById(R.id.spinner);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
 
         //creamos un array
-String [] opciones1 = {"Metro","Centimetro","Milimetro","Micrometro","Pulgada"};
-String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
+String [] opciones1 = {"Metro","Centimetro","Milimetro","Km","Pulgada"};
+String [] opciones2 = {"Centimetro","Milimetro","Km","Pulgada","Metro"};
 
 //Para comunicar con el spinner:
         ArrayAdapter <String> adapter1 = new ArrayAdapter<String>(this, R.layout.spinner_item_long, opciones1 );
@@ -61,10 +63,16 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       startActivity(intent);
     }else if(id == R.id.itemMasa){
       Toast.makeText(this, "Masa", Toast.LENGTH_LONG).show();
+      Intent intent = new Intent(getApplicationContext(), MasaActivity.class);
+      startActivity(intent);
     }else if(id == R.id.itemVolum){
       Toast.makeText(this, "Volumen", Toast.LENGTH_LONG).show();
+      Intent intent = new Intent(getApplicationContext(), VolumenActivity.class);
+      startActivity(intent);
     }else if(id == R.id.itemArea){
-      Toast.makeText(this, "Masa", Toast.LENGTH_LONG).show();
+      Toast.makeText(this, "Area", Toast.LENGTH_LONG).show();
+      Intent intent = new Intent(getApplicationContext(), AreaActivity.class);
+      startActivity(intent);
     }
 
     return super.onOptionsItemSelected(item);
@@ -100,8 +108,8 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       Double ConvMetro = valor_int * 1000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Metro") & seleccion2.equals("Micrometro")) {
-      Double ConvMetro = valor_int * 1000000;
+    } else if (seleccion1.equals("Metro") & seleccion2.equals("Km")) {
+      Double ConvMetro = valor_int / 1000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
     } else if (seleccion1.equals("Metro") & seleccion2.equals("Metro")) {
@@ -113,6 +121,7 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
 
+
   //Centimetro
     } else if (seleccion1.equals("Centimetro") & seleccion2.equals("Metro")) {
       Double ConvMetro = valor_int / 100;
@@ -122,8 +131,8 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       Double ConvMetro = valor_int * 10;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Centimetro") & seleccion2.equals("Micrometro")) {
-      Double ConvMetro = valor_int * 10000;
+    } else if (seleccion1.equals("Centimetro") & seleccion2.equals("Km")) {
+      Double ConvMetro = valor_int / 100000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
     } else if (seleccion1.equals("Centimetro") & seleccion2.equals("Pulgada")) {
@@ -144,8 +153,8 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       Double ConvMetro = valor_int / 10;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Milimetro") & seleccion2.equals("Micrometro")) {
-      Double ConvMetro = valor_int * 1000;
+    } else if (seleccion1.equals("Milimetro") & seleccion2.equals("Km")) {
+      Double ConvMetro = valor_int / 1000000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
     } else if (seleccion1.equals("Milimetro") & seleccion2.equals("Pulgada")) {
@@ -157,24 +166,24 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
     }
-    //Micrometro
-    else if (seleccion1.equals("Micrometro") & seleccion2.equals("Metro")) {
-      Double ConvMetro = valor_int / 1000000;
+    //Km
+    else if (seleccion1.equals("Km") & seleccion2.equals("Metro")) {
+      Double ConvMetro = valor_int * 1000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Micrometro") & seleccion2.equals("Centimetro")) {
-      Double ConvMetro = valor_int / 10000;
+    } else if (seleccion1.equals("Km") & seleccion2.equals("Centimetro")) {
+      Double ConvMetro = valor_int * 100000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Micrometro") & seleccion2.equals("Milimetro")) {
-      Double ConvMetro = valor_int / 1000;
+    } else if (seleccion1.equals("Km") & seleccion2.equals("Milimetro")) {
+      Double ConvMetro = valor_int * 1000000;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Micrometro") & seleccion2.equals("Pulgada")) {
-      Double ConvMetro = valor_int * 0.0000393701;
+    } else if (seleccion1.equals("Km") & seleccion2.equals("Pulgada")) {
+      Double ConvMetro = valor_int * 39370.08;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Micrometro") & seleccion2.equals("Micrometro")) {
+    } else if (seleccion1.equals("Km") & seleccion2.equals("Km")) {
       Double ConvMetro = valor_int * 1;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
@@ -193,8 +202,8 @@ String [] opciones2 = {"Centimetro","Milimetro","Micrometro","Pulgada","Metro"};
       Double ConvMetro = valor_int * 25.4;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
-    } else if (seleccion1.equals("Pulgada") & seleccion2.equals("Micrometro")) {
-      Double ConvMetro = valor_int * 25400;
+    } else if (seleccion1.equals("Pulgada") & seleccion2.equals("Km")) {
+      Double ConvMetro = valor_int * 0.0000254;
       String resultado = String.valueOf(ConvMetro);
       tvResul.setText(resultado);
     } else if (seleccion1.equals("Pulgada") & seleccion2.equals("Pulgada")) {

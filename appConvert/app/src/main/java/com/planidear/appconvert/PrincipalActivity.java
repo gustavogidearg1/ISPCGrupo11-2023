@@ -19,6 +19,8 @@ public class PrincipalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+      getSupportActionBar().setDisplayShowHomeEnabled(true);
+      getSupportActionBar().setIcon(R.mipmap.ic_launcher_round);
 
         //Obtenga el intent que inició esta actividad y extraiga la cadena
         Intent intent = getIntent();
@@ -31,6 +33,24 @@ public class PrincipalActivity extends AppCompatActivity {
     }
   public void abrirLongitud(View view){
     Intent intent = new Intent(getApplicationContext(), LongitudActivity.class);
+    startActivity(intent);
+
+  }
+
+  public void abrirVolumen(View view){
+    Intent intent = new Intent(getApplicationContext(), VolumenActivity.class);
+    startActivity(intent);
+
+  }
+
+  public void abrirMasa(View view){
+    Intent intent = new Intent(getApplicationContext(), MasaActivity.class);
+    startActivity(intent);
+
+  }
+
+  public void abrirArea(View view){
+    Intent intent = new Intent(getApplicationContext(), AreaActivity.class);
     startActivity(intent);
 
   }

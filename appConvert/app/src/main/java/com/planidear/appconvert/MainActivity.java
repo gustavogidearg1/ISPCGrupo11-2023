@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //para que tenga el logo en el action bar https://youtu.be/sNQqn4PEzm4?t=458
+getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher_round);
+
         email = findViewById(R.id.username);
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
@@ -120,5 +124,9 @@ public class MainActivity extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         requestQueue.add(stringRequest);
+    }
+    public void irRegistrar(View view) {
+        Intent intent = new Intent(getApplicationContext(), RegistroActivity.class);
+        startActivity(intent);
     }
 }

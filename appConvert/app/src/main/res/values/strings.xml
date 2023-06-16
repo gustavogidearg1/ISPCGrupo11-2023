@@ -4,6 +4,7 @@
     <string name="edt_username">User</string>
     <string name="edt_password">Password</string>
     <string name="btn_Login">Login</string>
+    <string name="txt_regis">Registrar</string>
     <string name="txt_registro">No te has registrado? Regístrate ahora</string>
     <string name="txt_Bienvenida">Bienvenido!!!</string>
     <string name="btn_Longitud">Longitud</string>
@@ -28,5 +29,9 @@
     <string name="itemMasa">Masa</string>
     <string name="itemArea">Area</string>
 
-
+    /*Registro */
+    <string name="txt_name">name</string>
+    <string name="txt_email">email</string>
+    <string name="txt_password">password</string>
+    <string name="btn_registro">Registrar</string>
 </resources>
